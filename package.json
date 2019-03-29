@@ -1,0 +1,23 @@
+{
+  "name": "mmremoteapi",
+  "version": "1.0.0",
+  "description": "RESTful API for MagicMirror Remote Control module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ajmferrier/MMRemoteAPI"
+  },
+  "author": " (Adam Ferrier)",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.4.20"
+  }
+}
