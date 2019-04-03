@@ -3,6 +3,7 @@
 var mongoose = require('mongoose'),
     Module = mongoose.model('Modules');
 
+// get all modules from /modules
 exports.list_all_modules = function(req, res) {
     Module.find({}, function(err, module) {
         if (err) {
@@ -12,6 +13,7 @@ exports.list_all_modules = function(req, res) {
     });
 };
 
+// post new module to /modules
 exports.create_a_module = function(req, res) {
     var new_module = new Module(req.body);
     new_module.save(function(err, module) {
@@ -22,6 +24,7 @@ exports.create_a_module = function(req, res) {
     });
 };
 
+// read module from /modules/{id}
 exports.read_a_module = function(req, res) {
     Module.findById(req.params.moduleId, function(err, module) {
         if (err) {
@@ -31,6 +34,7 @@ exports.read_a_module = function(req, res) {
     });
 };
 
+// update module at /modules/{id}
 exports.update_a_module = function(req, res) {
     Module.findOneAndUpdate({_id: req.params.moduleId}, req.body, {new: true}, function(err, module) {
         if (err) {
@@ -40,6 +44,7 @@ exports.update_a_module = function(req, res) {
     });
 };
 
+// delte module at /modules/{id}
 exports.delete_a_module = function(req, res) {
     Module.remove({
         _id: req.params.moduleId

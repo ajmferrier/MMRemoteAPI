@@ -12,7 +12,7 @@ var ModuleSchema = new Schema({
             type: String,
             enum: ['active', 'hidden']
         }],
-        default: ['active']
+        default: 'active'
     }
 });
 
