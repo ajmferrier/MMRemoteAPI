@@ -7,10 +7,10 @@ var express = require('express'),
 
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/Moduledb');
+mongoose.connect('mongodb://localhost:27017/Moduledb', {useNewUrlParser: true});
 
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 var routes = require('./api/routes/mmremoteRoutes'); // importing route
 routes(app); // register the route

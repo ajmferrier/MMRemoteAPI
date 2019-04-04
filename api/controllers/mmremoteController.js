@@ -16,6 +16,8 @@ exports.list_all_modules = function(req, res) {
 // post new module to /modules
 exports.create_a_module = function(req, res) {
     var new_module = new Module(req.body);
+    console.log("posting new item");
+    console.log(req.body);
     new_module.save(function(err, module) {
         if (err) {
             res.send(err);
