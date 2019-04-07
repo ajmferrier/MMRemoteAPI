@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var ModuleSchema = new Schema({
-    name: {
+    _id: {
         type: String,
         required: 'Please enter the name of the module'
     },
@@ -12,7 +12,7 @@ var ModuleSchema = new Schema({
             type: String,
             enum: ['active', 'hidden']
         }],
-        default: ['active']
+        default: 'active'
     }
 });
 

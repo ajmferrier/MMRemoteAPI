@@ -5,6 +5,7 @@ var mongoose = require('mongoose'),
 
 // get all modules from /modules
 exports.list_all_modules = function(req, res) {
+    console.log("listing modules");
     Module.find({}, function(err, module) {
         if (err) {
             res.send(err);
@@ -38,7 +39,7 @@ exports.read_a_module = function(req, res) {
 
 // update module at /modules/{id}
 exports.update_a_module = function(req, res) {
-    Module.findOneAndUpdate({_id: req.params.moduleId}, req.body, {new: true}, function(err, module) {
+    Module.findOneAndUpdate({_id: req.params.moduleId}, req.body, {new: true, upsert: true}, function(err, module) {
         if (err) {
             res.send(err);
         }
