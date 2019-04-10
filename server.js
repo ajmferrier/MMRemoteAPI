@@ -7,7 +7,14 @@ var express = require('express'),
 
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/Moduledb', {useNewUrlParser: true});
+// mongoose.connect('mongodb://localhost:27017/Moduledb', {useNewUrlParser: true});
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/Moduledb', {useNewUrlParser: true}, function (err, client) {
+    if (err) {
+        console.log(err);
+        process.exit(1);
+    }
+});
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
