@@ -7,12 +7,9 @@ var ModuleSchema = new Schema({
         type: String,
         required: 'Please enter the name of the module'
     },
-    status: {
-        type: [{
-            type: String,
-            enum: ['active', 'hidden']
-        }],
-        default: 'active'
+    hidden: {
+        type: Boolean,
+        default: false
     }
 });
 
